@@ -5,10 +5,30 @@
 body {
   margin: 0;
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  color: #1e293b;
-  background: #f5f7fb;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
 }
 
 #root {
   min-height: 100vh;
+}
+
+:root {
+  --cor-escura: #0f1b2d;
+  --cor-primaria: #1d4ed8;
+  --cor-primaria-hover: #1e40af;
+  --cor-sucesso: #22c55e;
+
+  --cor-fundo: #f5f7fb;
+  --cor-borda: #e2e8f0;
+
+  --cor-titulo: #0f172a;
+  --cor-texto: #1e293b;
+  --cor-texto-secundario: #64748b;
+  --cor-texto-claro: #cbd5e1;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

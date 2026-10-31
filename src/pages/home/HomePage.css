@@ -1,0 +1,28 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px);
+}
+
+.home-card {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.home-card h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    color: var(--cor-titulo);
+}
+
+.home-card p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+}

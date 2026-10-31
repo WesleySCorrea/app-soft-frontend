@@ -1,0 +1,31 @@
+.search-input {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid  var(--cor-borda);
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.search-input:focus-within {
+  border-color: var(--cor-primaria);
+}
+
+.search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  font: inherit;
+  font-size: 14px;
+  background: transparent;
+}
+
+.search-input button {
+  display: flex;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+}

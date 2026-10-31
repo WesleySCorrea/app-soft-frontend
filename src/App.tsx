@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router'
 import Layout from './components/Layout/Layout'
-import HomePage from './pages/HomePage'
+import HomePage from './pages/home/HomePage'
+import NovoPedidoPage from './pages/novoPedido/NovoPedidoPage'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/novo-pedido" element={<NovoPedidoPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

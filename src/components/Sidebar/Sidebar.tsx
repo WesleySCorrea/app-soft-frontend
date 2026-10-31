@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { ShoppingCart, ClipboardList, Package, Settings, LogOut } from 'lucide-react'
+import { ShoppingCart, ClipboardList, Package, Settings, LogOut, Home } from 'lucide-react'
 import keycloak from '../../auth/keycloak'
 import './Sidebar.css'
 
@@ -22,6 +22,7 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-menu">
+        <NavLink to="/inicio"><Home size={18} /> Novo Pedido</NavLink>
         <NavLink to="/novo-pedido"><ShoppingCart size={18} /> Novo Pedido</NavLink>
         <NavLink to="/meus-pedidos"><ClipboardList size={18} /> Meus Pedidos</NavLink>
         {isAdmin && (
