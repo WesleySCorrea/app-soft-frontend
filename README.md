@@ -6,8 +6,11 @@ Frontend em React + Vite + TypeScript.
 - Node.js 20+
 
 ## Rodar localmente
-​```bash
+​```
 npm install
+​```
+
+​```
 npm run dev
 ​```
 
