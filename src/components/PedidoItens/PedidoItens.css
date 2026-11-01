@@ -1,0 +1,77 @@
+.pedido-tabela {
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pedido-tabela table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pedido-tabela th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.pedido-tabela td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.pedido-tabela tr:last-child td {
+    border-bottom: none;
+}
+
+.pedido-produto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pedido-icone {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cor-fundo);
+    border-radius: 8px;
+    color: var(--cor-texto-secundario);
+}
+
+.pedido-produto-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pedido-produto-info strong {
+    color: var(--cor-titulo);
+}
+
+.pedido-produto-info span {
+    font-size: 12px;
+    color: var(--cor-texto-secundario);
+}
+
+.pedido-subtotal {
+    font-weight: 600;
+    color: var(--cor-titulo);
+}
+
+.pedido-remover {
+    display: flex;
+    padding: 0;
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+}

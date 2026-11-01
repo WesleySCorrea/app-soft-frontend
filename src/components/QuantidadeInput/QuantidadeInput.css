@@ -1,0 +1,29 @@
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantidade button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+.quantidade button:disabled {
+    color: var(--cor-texto-claro);
+    cursor: not-allowed;
+}
+
+.quantidade span {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 600;
+}

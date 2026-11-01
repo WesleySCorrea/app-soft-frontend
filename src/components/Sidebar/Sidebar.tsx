@@ -22,7 +22,7 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-menu">
-        <NavLink to="/inicio"><Home size={18} /> Novo Pedido</NavLink>
+        <NavLink to="/"><Home size={18} /> Início</NavLink>
         <NavLink to="/novo-pedido"><ShoppingCart size={18} /> Novo Pedido</NavLink>
         <NavLink to="/meus-pedidos"><ClipboardList size={18} /> Meus Pedidos</NavLink>
         {isAdmin && (

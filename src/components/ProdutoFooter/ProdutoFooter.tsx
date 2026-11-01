@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { Minus, Package, Plus, ShoppingCart } from 'lucide-react'
+import { Package, ShoppingCart } from 'lucide-react'
+import QuantidadeInput from '../QuantidadeInput/QuantidadeInput'
 import type { Produto } from '../../types/Produto'
+import { formatarMoeda } from '../../utils/formatarMoeda'
 import './ProdutoFooter.css'
 
 type ProdutoFooterProps = {
@@ -12,27 +14,18 @@ function ProdutoFooter({ produto, onAdicionar }: ProdutoFooterProps) {
   const [quantidade, setQuantidade] = useState(1)
 
   return (
-    <div className="footer">
-      <div className="produto">
-        <div className="icone">
+    <div className="produto-footer">
+      <div className="produto-footer-produto">
+        <div className="produto-footer-icone">
           <Package size={20} />
         </div>
-        <div className="info">
+        <div className="produto-footer-info">
           <strong>{produto.nome}</strong>
-          <span>
-            {produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-          </span>
+          <span>{formatarMoeda(produto.preco)}</span>
         </div>
       </div>
 
-      <div className="quantidade">
-        <button onClick={() => setQuantidade(quantidade - 1)} disabled={quantidade <= 1}><Minus size={16} />
-        </button>
-        <span>{quantidade}</span>
-        <button
-          onClick={() => setQuantidade(quantidade + 1)} disabled={quantidade >= produto.estoque}><Plus size={16} />
-        </button>
-      </div>
+      <QuantidadeInput valor={quantidade} max={produto.estoque} onChange={setQuantidade} />
 
       <button
         className="btn-primary"

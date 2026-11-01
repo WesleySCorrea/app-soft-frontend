@@ -9,25 +9,6 @@
   margin-bottom: 0;
 }
 
-.btn-primary {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--cor-primaria);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: var(--cor-primaria-hover);
-}
-
 .carrinho-vazio {
   display: flex;
   flex-direction: column;
@@ -49,4 +30,28 @@
 .carrinho-vazio p {
   margin: 0;
   font-size: 14px;
+}
+
+.pedido-resumo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.pedido-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pedido-total span {
+  font-size: 13px;
+  color: var(--cor-texto-secundario);
+}
+
+.pedido-total strong {
+  font-size: 22px;
+  color: var(--cor-titulo);
 }

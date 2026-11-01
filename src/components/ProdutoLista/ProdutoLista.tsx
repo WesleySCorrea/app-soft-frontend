@@ -24,13 +24,13 @@ function ProdutoLista({ produtos, selecionadoId, onSelecionar }: ProdutoListaPro
     <div className="produto-lista">
       {produtos.map((produto) => (
         <label
-          key={produto.id}
-          className={`produto-item ${produto.id === selecionadoId ? 'selecionado' : ''}`}
+          key={produto.produtoId}
+          className={`produto-item ${produto.produtoId === selecionadoId ? 'selecionado' : ''}`}
         >
           <input
             type="radio"
             name="produto"
-            checked={produto.id === selecionadoId}
+            checked={produto.produtoId === selecionadoId}
             onChange={() => onSelecionar(produto)}
           />
           <div className="produto-icone">

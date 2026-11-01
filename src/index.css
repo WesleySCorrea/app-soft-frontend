@@ -28,6 +28,37 @@ body {
   --cor-texto-claro: #cbd5e1;
 }
 
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  color: var(--cor-titulo);
+}
+
+.page-subtitle {
+  margin: 4px 0 24px;
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--cor-primaria-hover);
+}
+
 .btn-primary:disabled {
   opacity: 0.5;
   cursor: not-allowed;
