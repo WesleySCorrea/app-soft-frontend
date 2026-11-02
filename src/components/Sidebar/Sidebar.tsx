@@ -27,7 +27,7 @@ function Sidebar() {
         <NavLink to="/meus-pedidos"><ClipboardList size={18} /> Meus Pedidos</NavLink>
         {isAdmin && (
           <>
-            <NavLink to="/produtos"><Package size={18} /> Produtos</NavLink>
+            <NavLink to="/cadastro-produtos"><Package size={18} /> Produtos</NavLink>
             <NavLink to="/configuracoes"><Settings size={18} /> Configurações</NavLink>
           </>
         )}

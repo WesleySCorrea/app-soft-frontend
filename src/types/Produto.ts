@@ -4,4 +4,5 @@ export type Produto = {
     descricao: string
     preco: number
     estoque: number
+    ativo: boolean
 }

@@ -43,6 +43,8 @@ body {
 .btn-primary {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 120px;
   gap: 8px;
   padding: 10px 16px;
   background: var(--cor-primaria);
@@ -60,6 +62,33 @@ body {
 }
 
 .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-secundario:hover {
+  background: var(--cor-fundo);
+  border-color: var(--cor-texto-claro);
+}
+
+.btn-secundario:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

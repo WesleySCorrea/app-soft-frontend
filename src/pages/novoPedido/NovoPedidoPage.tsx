@@ -18,16 +18,16 @@ function NovoPedidoPage() {
     setModalAberto(false)
   }
 
-function finalizarPedido() {
-  const pedido: Pedido = {
-    itens: itens.map((item) => ({
-      produtoId: item.produto.produtoId,
-      quantidade: item.quantidade,
-    })),
-  }
+  function finalizarPedido() {
+    const pedido: Pedido = {
+      itens: itens.map((item) => ({
+        produtoId: item.produto.produtoId,
+        quantidade: item.quantidade,
+      })),
+    }
 
-  criarPedidoApi(pedido);
-}
+    criarPedidoApi(pedido);
+  }
 
   return (
     <div>
