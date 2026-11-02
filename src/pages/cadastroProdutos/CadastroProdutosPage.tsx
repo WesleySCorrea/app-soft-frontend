@@ -7,21 +7,26 @@ import { atualizarProduto, buscarProdutos, criarProduto } from '../../services/p
 import EmptyState from '../../components/EmptyState/EmptyState'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import ProdutoTabela from '../../components/ProdutoTabela/ProdutoTabela'
+import SucessoModal from '../../components/SucessoModal/SucessoModal'
 
 function CadastroProdutosPage() {
     const [modalAberto, setModalAberto] = useState(false)
     const [produtoEditando, setProdutoEditando] = useState<Produto | null>(null)
     const [produtos, setProdutos] = useState<Produto[]>([])
     const [termo, setTermo] = useState('')
+    const [mensagemSucesso, setMensagemSucesso] = useState<string | null>(null)
 
     async function salvarProduto(dados: Omit<Produto, 'produtoId'>) {
         try {
             if (produtoEditando) {
                 await atualizarProduto(produtoEditando.produtoId, dados)
+                setMensagemSucesso('As alterações do produto foram salvas.')
             } else {
                 await criarProduto(dados)
+                setMensagemSucesso('O produto foi cadastrado com sucesso.')
             }
             setModalAberto(false)
+            pesquisar("")
         } catch {
             alert('Não foi possível salvar o produto.')
         }
@@ -75,12 +80,20 @@ function CadastroProdutosPage() {
                     texto={termo ? 'Tente outro nome.' : 'Digite o nome e aperte Enter.'}
                 />
             )}
-            
+
             {modalAberto && (
                 <ProdutoFormModal
                     produto={produtoEditando}
                     onClose={() => setModalAberto(false)}
                     onSalvar={salvarProduto}
+                />
+            )}
+
+            {mensagemSucesso && (
+                <SucessoModal
+                    titulo={produtoEditando ? 'Produto atualizado!' : 'Produto cadastrado!'}
+                    mensagem={mensagemSucesso}
+                    onClose={() => setMensagemSucesso(null)}
                 />
             )}
         </div>
