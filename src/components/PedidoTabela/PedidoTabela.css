@@ -1,0 +1,76 @@
+.pedido-lista {
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pedido-lista table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pedido-lista th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.pedido-lista td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.pedido-lista tr:last-child td {
+    border-bottom: none;
+}
+
+.pedido-lista-numero {
+    font-weight: 600;
+    color: var(--cor-titulo);
+}
+
+.pedido-lista-total {
+    font-weight: 600;
+    color: var(--cor-titulo);
+}
+
+.pedido-status {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.pedido-status.pendente {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.pedido-status.confirmado {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.pedido-status.cancelado {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.pedido-lista-visualizar {
+    display: flex;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--cor-texto-secundario);
+    cursor: pointer;
+}
+
+.pedido-lista-visualizar:hover {
+    color: var(--cor-primaria);
+}

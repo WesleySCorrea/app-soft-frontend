@@ -19,3 +19,17 @@ export async function criarPedido(pedido: Pedido): Promise<void> {
     throw new Error('Erro ao criar pedido');
   }
 }
+
+export async function listarPedidos(): Promise<Pedido[]> {
+  await keycloak.updateToken(30);
+
+  const resposta = await fetch(`${API_URL}/pedidos`, {
+    headers: { Authorization: `Bearer ${keycloak.token}` },
+  });
+
+  if (!resposta.ok) {
+    throw new Error('Erro ao listar pedidos');
+  }
+
+  return resposta.json();
+}

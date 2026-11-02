@@ -1,6 +1,10 @@
+import type { ItemPedido } from "./ItemPedido"
+import type { PedidoStatus } from "./PedidoStatus"
+
 export type Pedido = {
-  itens: {
-    produtoId: number
-    quantidade: number
-  }[]
+  id: number
+  status: PedidoStatus
+  total: number | null
+  criadoEm: string
+  itens: ItemPedido[]
 }
