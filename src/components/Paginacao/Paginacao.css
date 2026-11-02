@@ -1,0 +1,9 @@
+.paginacao {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--cor-texto-secundario);
+}

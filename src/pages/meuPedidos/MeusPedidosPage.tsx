@@ -6,21 +6,31 @@ import { listarPedidos } from '../../services/pedidoService'
 import { useEffect, useState } from 'react'
 import EmptyState from '../../components/EmptyState/EmptyState'
 import PedidoTabela from '../../components/PedidoTabela/PedidoTabela'
+import Paginacao from '../../components/Paginacao/Paginacao'
 
 function MeusPedidosPage() {
   const navigate = useNavigate()
   const [pedidos, setPedidos] = useState<Pedido[]>([])
+  const [pagina, setPagina] = useState(0)
+  const [totalPaginas, setTotalPaginas] = useState(0)
 
-  async function carregar() {
+  async function carregar(pagina: number) {
     try {
-      setPedidos(await listarPedidos())
+      const resposta = await listarPedidos(pagina)
+      setPedidos(resposta.content)
+      setTotalPaginas(resposta.totalPages)
     } catch {
       alert('Não foi possível carregar os pedidos.')
     }
   }
 
+  function mudarPagina(novaPagina: number) {
+    setPagina(novaPagina)
+    carregar(novaPagina)
+  }
+
   useEffect(() => {
-    carregar()
+    carregar(0)
   }, [])
 
   return (
@@ -36,7 +46,10 @@ function MeusPedidosPage() {
       </div>
 
       {pedidos.length > 0 ? (
-        <PedidoTabela pedidos={pedidos} />
+        <>
+          <PedidoTabela pedidos={pedidos} />
+          <Paginacao pagina={pagina} totalPaginas={totalPaginas} onMudar={mudarPagina} />
+        </>
       ) : (
         <EmptyState
           icone={<ClipboardList size={40} />}

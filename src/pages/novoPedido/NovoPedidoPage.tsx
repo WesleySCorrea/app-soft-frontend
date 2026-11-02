@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import { Check, Plus, ShoppingCart } from 'lucide-react'
 import ProdutoBuscaModal from '../../components/ProdutoBuscarModal/ProdutoBuscaModal'
@@ -6,27 +7,41 @@ import type { Produto } from '../../types/Produto'
 import { usePedido } from '../../hooks/usePedido'
 import { formatarMoeda } from '../../utils/formatarMoeda'
 import './NovoPedidoPage.css'
-import type { Pedido } from '../../types/Pedido'
 import { criarPedido as criarPedidoApi } from '../../services/pedidoService'
+import SucessoModal from '../../components/SucessoModal/SucessoModal'
+import type { PedidoRequest } from '../../types/PedidoRequest'
 
 function NovoPedidoPage() {
   const [modalAberto, setModalAberto] = useState(false)
-  const { itens, total, adicionar, alterarQuantidade, remover } = usePedido()
+  const { itens, total, adicionar, alterarQuantidade, remover, limpar } = usePedido()
+  const [pedidoRealizado, setPedidoRealizado] = useState(false)
+  const navigate = useNavigate()
 
   function adicionarProduto(produto: Produto, quantidade: number) {
     adicionar(produto, quantidade)
     setModalAberto(false)
   }
 
-  function finalizarPedido() {
-    const pedido: Pedido = {
+  async function finalizarPedido() {
+    const pedido: PedidoRequest = {
       itens: itens.map((item) => ({
         produtoId: item.produto.produtoId,
         quantidade: item.quantidade,
       })),
     }
 
-    criarPedidoApi(pedido);
+    try {
+      await criarPedidoApi(pedido)
+      limpar()
+      setPedidoRealizado(true)
+    } catch {
+      alert('Não foi possível finalizar o pedido.')
+    }
+  }
+
+  function fecharSucesso() {
+    setPedidoRealizado(false)
+    navigate('/meus-pedidos')
   }
 
   return (
@@ -71,6 +86,14 @@ function NovoPedidoPage() {
         <ProdutoBuscaModal
           onClose={() => setModalAberto(false)}
           onAdicionar={adicionarProduto}
+        />
+      )}
+
+      {pedidoRealizado && (
+        <SucessoModal
+          titulo="Pedido realizado!"
+          mensagem="Seu pedido foi recebido e está aguardando a confirmação do estoque."
+          onClose={fecharSucesso}
         />
       )}
     </div>

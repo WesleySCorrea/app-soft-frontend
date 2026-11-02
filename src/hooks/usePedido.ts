@@ -33,5 +33,9 @@ export function usePedido() {
     setItens((atuais) => atuais.filter((item) => item.produto.produtoId !== produtoId))
   }
 
-  return { itens, total, adicionar, alterarQuantidade, remover }
+  function limpar() {
+    setItens([])
+  }
+
+  return { itens, total, adicionar, alterarQuantidade, remover, limpar }
 }
